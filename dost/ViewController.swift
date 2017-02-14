@@ -23,22 +23,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //generateTestData()
+        attemptFetch()
     
     }
     
     //set up table view controller
-        func tableView(_ tableView: UITableView, cellForRowAt: IndexPath) -> UITableViewCell {
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
+            configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
+            return cell
         }
+    
+    func configureCell(cell: TaskCell, indexPath: NSIndexPath) {
         
+       let task = controller.object(at: indexPath as IndexPath)
+        cell.configureCell(task: task)
+    
+    }
         
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            if let sections = controller.sections {
+                let sectionInfo = sections[section]
+                return sectionInfo.numberOfObjects
+            }
+            
             return 0
         }
         
-        func numberOfSections(in: UITableView) -> Int {
+    func numberOfSections(in: UITableView) -> Int {
         
+            if let sections = controller.sections {
+                return sections.count
+            }
+
             return 0
         }
     
@@ -50,6 +70,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         fetchRequest.sortDescriptors = [dateSort]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        self.controller = controller
         
         do {
             try controller.performFetch()
@@ -96,7 +118,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if let indexPath = indexPath {
                 
                 let cell = tableView.cellForRow(at: indexPath) as! TaskCell
-                //update cell data
+                configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
             
             }
             break
@@ -117,7 +139,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
         
+    func generateTestData() {
+        
+        let task1 = Task (context: context)
+        task1.title = "Finish the iOS Assignment"
+        task1.notes = "Complete to do list called 'dost'"
+        task1.completed = false
     
+        let task2 = Task (context: context)
+        task2.title = "Finish the Web Assignment"
+        task2.completed = false
+        
+        let task3 = Task (context: context)
+        task3.title = "Finish the ET Assignment"
+        task3.completed = false
+        
+        ad.saveContext()
+    
+    }
     
     
     
