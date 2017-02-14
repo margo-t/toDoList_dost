@@ -57,19 +57,116 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } catch {
             let error = error as NSError
             print("\(error)")
-        
-        
         }
+    }
+    
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        tableView.endUpdates()
+    }
     
     
-    
-    
+    //fetched results controller for displaying data
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+            
+        
+        case.insert:
+            if let indexPath = newIndexPath {
+                
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+            break
+            
+        case.delete:
+            if let indexPath = indexPath {
+                    
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            break
+            
+        case.update:
+            if let indexPath = indexPath {
+                
+                let cell = tableView.cellForRow(at: indexPath) as! TaskCell
+                //update cell data
+            
+            }
+            break
+            
+        case.move:
+            if let indexPath = indexPath {
+                
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+            if let indexPath = indexPath {
+                
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+            break
+            
+   
+        }
     }
         
     
     
     
     
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
