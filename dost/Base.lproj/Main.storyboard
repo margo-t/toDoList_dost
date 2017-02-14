@@ -35,7 +35,7 @@
                                 <rect key="frame" x="16" y="138" width="343" height="529"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="118" id="7sj-WX-pFx" customClass="TaskCell" customModule="dost" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="118" id="7sj-WX-pFx" customClass="TaskCell" customModule="dost" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7sj-WX-pFx" id="NtL-1K-P4f">
@@ -96,6 +96,7 @@
                                         <connections>
                                             <outlet property="notes" destination="sUy-jb-ji0" id="ant-JQ-5ev"/>
                                             <outlet property="title" destination="dKn-3Q-heW" id="bgV-Up-Ajx"/>
+                                            <segue destination="rlr-DI-hFi" kind="show" identifier="TaskDetailsVC" id="6cl-gD-gey"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -114,7 +115,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="dost" id="bcP-TX-1d9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Rd-2s-oVe">
-                            <color key="tintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="rlr-DI-hFi" kind="show" identifier="TaskDetailsVCNew" id="d5a-Jy-ryX"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -126,18 +130,80 @@
             </objects>
             <point key="canvasLocation" x="1079.2" y="138.0809595202399"/>
         </scene>
+        <!--Add/Edit Task-->
+        <scene sceneID="nnA-JV-DQV">
+            <objects>
+                <viewController id="rlr-DI-hFi" customClass="TaskDetailsViewController" customModule="dost" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MsY-dt-mBi"/>
+                        <viewControllerLayoutGuide type="bottom" id="mYS-Q1-Gv6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pkq-wA-8Qx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uCt-so-l97" customClass="CustomTextField" customModule="dost" customModuleProvider="target">
+                                <rect key="frame" x="16" y="90" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Details" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M99-0T-rSd" customClass="CustomTextField" customModule="dost" customModuleProvider="target">
+                                <rect key="frame" x="16" y="142" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxa-QV-rmd">
+                                <rect key="frame" x="123" y="246" width="129" height="30"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="Fee-Dl-gwm"/>
+                                    <constraint firstAttribute="height" constant="30" id="cwC-4q-Vl3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Save Task">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kxa-QV-rmd" firstAttribute="top" secondItem="M99-0T-rSd" secondAttribute="bottom" constant="74" id="8WR-G5-ggf"/>
+                            <constraint firstItem="uCt-so-l97" firstAttribute="trailing" secondItem="M99-0T-rSd" secondAttribute="trailing" id="M4M-ug-JDr"/>
+                            <constraint firstItem="uCt-so-l97" firstAttribute="top" secondItem="MsY-dt-mBi" secondAttribute="bottom" constant="26" id="cF3-xo-cZz"/>
+                            <constraint firstItem="uCt-so-l97" firstAttribute="trailing" secondItem="pkq-wA-8Qx" secondAttribute="trailingMargin" id="gvH-kD-YPP"/>
+                            <constraint firstItem="uCt-so-l97" firstAttribute="leading" secondItem="M99-0T-rSd" secondAttribute="leading" id="ocL-40-4EE"/>
+                            <constraint firstItem="uCt-so-l97" firstAttribute="leading" secondItem="pkq-wA-8Qx" secondAttribute="leadingMargin" id="qcs-gy-uOL"/>
+                            <constraint firstItem="M99-0T-rSd" firstAttribute="centerX" secondItem="Kxa-QV-rmd" secondAttribute="centerX" id="vdP-44-MvK"/>
+                            <constraint firstItem="M99-0T-rSd" firstAttribute="top" secondItem="uCt-so-l97" secondAttribute="bottom" constant="22" id="zN3-Wi-sjY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add/Edit Task" id="GUp-jJ-vvD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="RI7-Ww-oSK">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1G2-d9-4fB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872.8" y="138.98050974512745"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jJj-YU-vto">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gPp-ol-1pn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cnJ-Qh-ngL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         </textAttributes>
                     </navigationBar>
@@ -154,4 +220,7 @@
     <resources>
         <image name="switchOFF" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="6cl-gD-gey"/>
+    </inferredMetricsTieBreakers>
 </document>

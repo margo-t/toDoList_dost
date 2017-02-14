@@ -17,5 +17,6 @@ public class Task: NSManagedObject {
         super.awakeFromInsert()
         
         self.created = NSDate()
+        self.completed = false
     }
 }

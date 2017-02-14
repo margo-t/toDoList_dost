@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5639DB89FDA997D24F53B73487AB969E5FB7E6A5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C3ECA66A8B45A03F9405F315F32417CFFC30586C" : 9223372036854775807,
+    "5639DB89FDA997D24F53B73487AB969E5FB7E6A5" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3C8BAE2A-3B4F-4114-B35A-AAC92A435B7D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C3ECA66A8B45A03F9405F315F32417CFFC30586C" : "",
+    "5639DB89FDA997D24F53B73487AB969E5FB7E6A5" : "dost\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "dost",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "dost.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/margo-t\/toDoList_dost.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5639DB89FDA997D24F53B73487AB969E5FB7E6A5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/margo-t\/iOSLabs.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C3ECA66A8B45A03F9405F315F32417CFFC30586C"
+    }
+  ]
+}
