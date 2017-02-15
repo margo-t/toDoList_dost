@@ -29,7 +29,7 @@
                                     <segment title="To Do"/>
                                     <segment title="Completed"/>
                                 </segments>
-                                <color key="tintColor" red="0.2901960784" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="118" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k4n-pG-xJd">
                                 <rect key="frame" x="16" y="138" width="343" height="529"/>
@@ -53,7 +53,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of this wonderful task goes here. Accept the challange" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUy-jb-ji0">
                                                             <rect key="frame" x="62" y="38" width="257" height="57"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -62,7 +62,10 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="UEb-m9-glD"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="switchOFF"/>
+                                                            <state key="normal" title="Button" image="switchON"/>
+                                                            <connections>
+                                                                <action selector="completed:" destination="7sj-WX-pFx" eventType="touchUpInside" id="gAt-UT-oPC"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -115,7 +118,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="dost" id="bcP-TX-1d9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Rd-2s-oVe">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="rlr-DI-hFi" kind="show" identifier="TaskDetailsVCNew" id="d5a-Jy-ryX"/>
                             </connections>
@@ -158,7 +161,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxa-QV-rmd">
                                 <rect key="frame" x="123" y="246" width="129" height="30"/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="129" id="Fee-Dl-gwm"/>
                                     <constraint firstAttribute="height" constant="30" id="cwC-4q-Vl3"/>
@@ -167,6 +170,9 @@
                                 <state key="normal" title="Save Task">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="savePressed:" destination="rlr-DI-hFi" eventType="touchUpInside" id="60P-T6-R0z"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -186,10 +192,14 @@
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="notesField" destination="M99-0T-rSd" id="fKD-s7-NZw"/>
+                        <outlet property="titleField" destination="uCt-so-l97" id="Zhf-n2-pcg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1G2-d9-4fB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1872.8" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1806" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jJj-YU-vto">
@@ -218,7 +228,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="switchOFF" width="256" height="256"/>
+        <image name="switchON" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6cl-gD-gey"/>

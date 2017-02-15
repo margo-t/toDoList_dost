@@ -9,6 +9,12 @@
 import UIKit
 
 class TaskDetailsViewController: UIViewController {
+    
+    
+    @IBOutlet weak var titleField: CustomTextField!
+    @IBOutlet weak var notesField: CustomTextField!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +25,29 @@ class TaskDetailsViewController: UIViewController {
         
         }
     }
+    
+    @IBAction func savePressed(_ sender: UIButton) {
+        
+        print("pressed")
+        
+        let task = Task(context: context)
+        
+        if let title = titleField.text {
+            task.title = title
+        }
+        
+        if let notes = notesField.text {
+            task.notes = notes
+        }
+        
+        ad.saveContext()
+        
+        _ = navigationController?.popViewController(animated: true)
+        
+        
+        
+    }
+    
 
     
     

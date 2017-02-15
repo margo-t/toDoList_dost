@@ -107,8 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				8D786C0B1E526209008CD79E /* MaterialView.swift */,
-				8D786C0F1E52C6C1008CD79E /* TaskCell.swift */,
 				8D786C151E539157008CD79E /* CustomTextField.swift */,
+				8D786C0F1E52C6C1008CD79E /* TaskCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

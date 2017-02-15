@@ -71,6 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
+        controller.delegate = self
         self.controller = controller
         
         do {
@@ -148,10 +149,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
         let task2 = Task (context: context)
         task2.title = "Finish the Web Assignment"
+        task2.notes = "Implement Calculator with Angular 2"
         task2.completed = false
         
         let task3 = Task (context: context)
         task3.title = "Finish the ET Assignment"
+        task3.notes = "udate on twitter feedback with RED node"
         task3.completed = false
         
         ad.saveContext()
