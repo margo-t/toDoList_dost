@@ -43,6 +43,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.configureCell(task: task)
     
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let obj = controller.fetchedObjects , obj.count > 0 {
+            
+            let task = obj[indexPath.row]
+            performSegue(withIdentifier: "TaskDetailsVC", sender: task)
+        
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TaskDetailsVC" {
+            
+            if let destination = segue.destination as? TaskDetailsViewController {
+                
+                if let task = sender as? Task {
+                    destination.taskToEdit = task
+                }
+            }
+        
+        }
+    }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             if let sections = controller.sections {

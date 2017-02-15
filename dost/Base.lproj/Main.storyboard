@@ -99,7 +99,6 @@
                                         <connections>
                                             <outlet property="notes" destination="sUy-jb-ji0" id="ant-JQ-5ev"/>
                                             <outlet property="title" destination="dKn-3Q-heW" id="bgV-Up-Ajx"/>
-                                            <segue destination="rlr-DI-hFi" kind="show" identifier="TaskDetailsVC" id="6cl-gD-gey"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -127,6 +126,7 @@
                     <connections>
                         <outlet property="segment" destination="xsL-IW-m03" id="V5r-oX-bcv"/>
                         <outlet property="tableView" destination="k4n-pG-xJd" id="Nvm-qo-HVQ"/>
+                        <segue destination="rlr-DI-hFi" kind="show" identifier="TaskDetailsVC" id="Sm6-lZ-nAX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -190,6 +190,9 @@
                     <navigationItem key="navigationItem" title="Add/Edit Task" id="GUp-jJ-vvD">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="RI7-Ww-oSK">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="delete_pressed:" destination="rlr-DI-hFi" id="zLH-GI-iKK"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -231,6 +234,6 @@
         <image name="switchON" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6cl-gD-gey"/>
+        <segue reference="Sm6-lZ-nAX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,7 +14,7 @@ class TaskDetailsViewController: UIViewController {
     @IBOutlet weak var titleField: CustomTextField!
     @IBOutlet weak var notesField: CustomTextField!
     
-    
+    var taskToEdit: Task?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +24,29 @@ class TaskDetailsViewController: UIViewController {
             topTask.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         }
+        
+        if taskToEdit != nil {
+            
+            loadTaskData()
+        }
+        
     }
     
     @IBAction func savePressed(_ sender: UIButton) {
         
         print("pressed")
         
-        let task = Task(context: context)
+        var task: Task!
+        
+        if taskToEdit == nil {
+            
+            task = Task(context: context)
+        }
+        else {
+            task = taskToEdit
+        }
+        
+        //let task = Task(context: context)
         
         if let title = titleField.text {
             task.title = title
@@ -44,10 +60,30 @@ class TaskDetailsViewController: UIViewController {
         
         _ = navigationController?.popViewController(animated: true)
         
+    }
+    
+    func loadTaskData(){
         
+        if let task = taskToEdit {
+            
+            titleField.text = task.title
+            notesField.text = task.notes
+        
+        }
         
     }
     
+    @IBAction func delete_pressed(_ sender: Any) {
+        
+        if taskToEdit != nil {
+            
+            context.delete(taskToEdit!)
+            ad.saveContext()
+        }
+        
+        _ = navigationController?.popViewController(animated: true)
+        
+    }
 
     
     
