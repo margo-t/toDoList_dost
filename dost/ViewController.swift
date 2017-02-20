@@ -201,7 +201,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    
+    /*
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        
         if editingStyle == .delete {
             if let obj = controller.fetchedObjects , obj.count > 0 {
                 
@@ -210,10 +214,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 ad.saveContext()
                 
             }
-
+            
         }
     }
+    
+    */
+
+
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        
+
+        let done = UITableViewRowAction(style: .normal, title: "Done") { action, index in
+            print("completed")
+
+        }
+        done.backgroundColor = .blue
+        
+        
+        
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            print("delete")
+        }
+        delete.backgroundColor = .red
+        
+        return [delete, done]
+    }
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    
     /*
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             // delete item at indexPath
