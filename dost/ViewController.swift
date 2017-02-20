@@ -221,7 +221,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     */
 
 
-    
+    /*
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         
 
@@ -248,7 +248,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    /*
+    
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
