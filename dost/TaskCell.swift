@@ -12,10 +12,24 @@ class TaskCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var notes: UILabel!
+    @IBOutlet weak var completedButton: UIButton!
+    
     
     @IBAction func completed(_ sender: UIButton) {
+        print("completed pressed")
         
+        let task: Task!
+        task = Task(context: context)
+        print(task.title as Any, task.notes as Any)
+        //sender.setImage(UIImage(named: "switchOFF"), for: UIControlState.normal)
         
+        /*
+        var task: Task!
+        
+        if task.completed {
+            task.completed = false
+        } else {task.completed = true}
+        */
 
     }
     
@@ -28,7 +42,17 @@ class TaskCell: UITableViewCell {
     }
     
     func setCompletedStyle(state: Bool){
-    
+        
+        if !state {
+            completedButton.setImage(UIImage(named: "switchOFF"), for: UIControlState.normal)
+            title?.textColor = UIColor.black
+            notes?.textColor = UIColor.black
+            //state = true
+        } else {
+            completedButton.setImage(UIImage(named: "switchON"), for: UIControlState.normal)
+            title?.textColor = UIColor.lightGray
+            notes?.textColor = UIColor.lightGray
+        }
     }
 
 }

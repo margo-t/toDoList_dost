@@ -22,18 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xsL-IW-m03">
-                                <rect key="frame" x="16" y="92" width="343" height="29"/>
-                                <segments>
-                                    <segment title="All"/>
-                                    <segment title="To Do"/>
-                                    <segment title="Completed"/>
-                                </segments>
-                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="118" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k4n-pG-xJd">
-                                <rect key="frame" x="16" y="138" width="343" height="529"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="118" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k4n-pG-xJd">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="118" id="7sj-WX-pFx" customClass="TaskCell" customModule="dost" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="118"/>
@@ -69,6 +61,7 @@
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstItem="Txa-Z9-vCF" firstAttribute="leading" secondItem="lz2-iP-Kl0" secondAttribute="leading" constant="16" id="5NW-mk-voX"/>
                                                         <constraint firstItem="Txa-Z9-vCF" firstAttribute="top" secondItem="lz2-iP-Kl0" secondAttribute="top" constant="17" id="81e-ll-Q1J"/>
@@ -87,7 +80,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.2901960784" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="lz2-iP-Kl0" firstAttribute="leading" secondItem="NtL-1K-P4f" secondAttribute="leadingMargin" id="HfV-uI-XZB"/>
                                                 <constraint firstItem="lz2-iP-Kl0" firstAttribute="trailing" secondItem="NtL-1K-P4f" secondAttribute="trailingMargin" id="hW4-tO-g3x"/>
@@ -95,25 +88,21 @@
                                                 <constraint firstItem="lz2-iP-Kl0" firstAttribute="bottom" secondItem="NtL-1K-P4f" secondAttribute="bottomMargin" id="zIp-ED-5qZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.2901960784" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="completedButton" destination="Txa-Z9-vCF" id="rsW-s8-Sgm"/>
                                             <outlet property="notes" destination="sUy-jb-ji0" id="ant-JQ-5ev"/>
                                             <outlet property="title" destination="dKn-3Q-heW" id="bgV-Up-Ajx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="k4n-pG-xJd" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="7c9-U6-Sjm"/>
-                            <constraint firstItem="xsL-IW-m03" firstAttribute="trailing" secondItem="k4n-pG-xJd" secondAttribute="trailing" id="QJF-Qj-Rfh"/>
-                            <constraint firstItem="xsL-IW-m03" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Xcn-Oy-0pB"/>
-                            <constraint firstItem="xsL-IW-m03" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="YE0-Od-lxn"/>
-                            <constraint firstItem="k4n-pG-xJd" firstAttribute="top" secondItem="xsL-IW-m03" secondAttribute="bottom" constant="18" id="Ytp-bb-3rl"/>
-                            <constraint firstItem="xsL-IW-m03" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="iW2-wa-bEK"/>
-                            <constraint firstItem="xsL-IW-m03" firstAttribute="leading" secondItem="k4n-pG-xJd" secondAttribute="leading" id="rDz-m9-wSa"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.2901960784" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="dost" id="bcP-TX-1d9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Rd-2s-oVe">
@@ -124,7 +113,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="segment" destination="xsL-IW-m03" id="V5r-oX-bcv"/>
                         <outlet property="tableView" destination="k4n-pG-xJd" id="Nvm-qo-HVQ"/>
                         <segue destination="rlr-DI-hFi" kind="show" identifier="TaskDetailsVC" id="Sm6-lZ-nAX"/>
                     </connections>

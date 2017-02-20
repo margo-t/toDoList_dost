@@ -22,7 +22,6 @@ class TaskDetailsViewController: UIViewController {
         if let topTask = self.navigationController?.navigationBar.topItem {
             
             topTask.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
-        
         }
         
         if taskToEdit != nil {
@@ -39,7 +38,6 @@ class TaskDetailsViewController: UIViewController {
         var task: Task!
         
         if taskToEdit == nil {
-            
             task = Task(context: context)
         }
         else {

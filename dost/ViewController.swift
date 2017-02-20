@@ -29,10 +29,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     }
     
+    
     //set up table view controller
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
+            
             configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
             return cell
         }
@@ -83,6 +85,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
             return 0
         }
+    
+    
+    //change cell style depending on 'completed' attribute
+    /*func toggleCellCheckbox(_ cell: UITableViewCell, isCompleted: Bool) {
+        if !isCompleted {
+            cell.accessoryType = .none
+            cell.textLabel?.textColor = UIColor.black
+            cell.detailTextLabel?.textColor = UIColor.black
+        } else {
+            cell.accessoryType = .checkmark
+            cell.textLabel?.textColor = UIColor.gray
+            cell.detailTextLabel?.textColor = UIColor.gray
+        }
+    }*/
+    
     
     //connect to core data
     func attemptFetch() {
@@ -167,7 +184,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let task1 = Task (context: context)
         task1.title = "Finish the iOS Assignment"
         task1.notes = "Complete to do list called 'dost'"
-        task1.completed = false
+        task1.completed = true
     
         let task2 = Task (context: context)
         task2.title = "Finish the Web Assignment"
@@ -177,58 +194,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let task3 = Task (context: context)
         task3.title = "Finish the ET Assignment"
         task3.notes = "udate on twitter feedback with RED node"
-        task3.completed = false
+        task3.completed = true
         
         ad.saveContext()
     
     }
     
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let obj = controller.fetchedObjects , obj.count > 0 {
+                
+                let task = obj[indexPath.row]
+                context.delete(task)
+                ad.saveContext()
+                
+            }
+
+        }
+    }
+    /*
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+        }
+        
+        let share = UITableViewRowAction(style: .normal, title: "Disable") { (action, indexPath) in
+            // share item at indexPath
+        }
+        
+        share.backgroundColor = UIColor.blue
+        
+        return [delete, share]
+    }*/
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
