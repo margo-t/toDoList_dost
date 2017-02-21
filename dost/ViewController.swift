@@ -2,9 +2,10 @@
 //  ViewController.swift
 //  dost
 //
-//  Created by Margo T on 2017-02-13.
+//  Created by Margarita Tereshchenkova - ID: 300923592 on 2017-02-13.
 //  Copyright © 2017 margot. All rights reserved.
 //
+//  Controller for the MainView
 
 import UIKit
 import CoreData
@@ -47,11 +48,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return cell
         }
     
+    
     func configureCell(cell: TaskCell, indexPath: NSIndexPath) {
         
        let task = controller.object(at: indexPath as IndexPath)
         cell.configureCell(task: task)
-    
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -173,13 +174,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
         
+
+    
+    
+    
+    //swipe to delete data
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        
+        if editingStyle == .delete {
+            if let obj = controller.fetchedObjects , obj.count > 0 {
+                
+                let task = obj[indexPath.row]
+                context.delete(task)
+                ad.saveContext()
+            }
+        }
+    }
+    
+    
+    //populate with test data
     func generateTestData() {
         
         let task1 = Task (context: context)
         task1.title = "Finish the iOS Assignment"
         task1.notes = "Complete to do list called 'dost'"
         task1.completed = true
-    
+        
         let task2 = Task (context: context)
         task2.title = "Finish the Web Assignment"
         task2.notes = "Implement Calculator with Angular 2"
@@ -191,25 +212,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         task3.completed = true
         
         ad.saveContext()
-    
-    }
-    
-    
-    
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-        
-        if editingStyle == .delete {
-            if let obj = controller.fetchedObjects , obj.count > 0 {
-                
-                let task = obj[indexPath.row]
-                context.delete(task)
-                ad.saveContext()
-                
-            }
-            
-        }
     }
     
     

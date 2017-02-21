@@ -2,10 +2,10 @@
 //  TaskDetailsViewController.swift
 //  dost
 //
-//  Created by Margo T on 2017-02-14.
+//  Created by Margarita Tereshchenkova - ID: 300923592 on 2017-02-14.
 //  Copyright © 2017 margot. All rights reserved.
 //
-
+//  Controller for the TaskDetailsView
 import UIKit
 
 class TaskDetailsViewController: UIViewController {
@@ -30,6 +30,7 @@ class TaskDetailsViewController: UIViewController {
         }
         
     }
+    
     
     @IBAction func savePressed(_ sender: UIButton) {
         

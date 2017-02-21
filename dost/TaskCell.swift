@@ -2,10 +2,10 @@
 //  TaskCell.swift
 //  dost
 //
-//  Created by Margo T on 2017-02-14.
+//  Created by Margarita Tereshchenkova - ID: 300923592 on 2017-02-14.
 //  Copyright © 2017 margot. All rights reserved.
 //
-
+//  Description: TaskCell view-related configurations
 import UIKit
 
 class TaskCell: UITableViewCell {
@@ -15,19 +15,17 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var completedButton: UIButton!
     
     var completedAction: ((UITableViewCell) -> Void)?
+
+    
+    @IBAction func completed(_ sender: UIButton) {
+        completedAction!(self)
+    }
     
     func configureCell(task: Task) {
         title.text = task.title
         notes.text = task.notes
         setCompletedStyle(state: task.completed)
     }
-    
-    
-    @IBAction func completed(_ sender: UIButton) {
-        completedAction!(self)
-    }
-    
-    
     
     
     func setCompletedStyle(state: Bool){
