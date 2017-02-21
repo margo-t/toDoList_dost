@@ -95,20 +95,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     
     
-    //change cell style depending on 'completed' attribute
-    /*func toggleCellCheckbox(_ cell: UITableViewCell, isCompleted: Bool) {
-        if !isCompleted {
-            cell.accessoryType = .none
-            cell.textLabel?.textColor = UIColor.black
-            cell.detailTextLabel?.textColor = UIColor.black
-        } else {
-            cell.accessoryType = .checkmark
-            cell.textLabel?.textColor = UIColor.gray
-            cell.detailTextLabel?.textColor = UIColor.gray
-        }
-    }*/
-    
-    
     //connect to core data
     func attemptFetch() {
         
@@ -201,7 +187,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let task3 = Task (context: context)
         task3.title = "Finish the ET Assignment"
-        task3.notes = "udate on twitter feedback with RED node"
+        task3.notes = "update on twitter feedback with RED node"
         task3.completed = true
         
         ad.saveContext()
@@ -210,7 +196,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    /*
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         
@@ -225,52 +211,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         }
     }
-    
-    */
-
-
-    /*
-    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
-        
-
-        let done = UITableViewRowAction(style: .normal, title: "Done") { action, index in
-            print("completed")
-
-        }
-        done.backgroundColor = .blue
-        
-        
-        
-        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
-            print("delete")
-        }
-        delete.backgroundColor = .red
-        
-        return [delete, done]
-    }
-    
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    
-    
-    
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            // delete item at indexPath
-        }
-        
-        let share = UITableViewRowAction(style: .normal, title: "Disable") { (action, indexPath) in
-            // share item at indexPath
-        }
-        
-        share.backgroundColor = UIColor.blue
-        
-        return [delete, share]
-    }*/
     
     
 }

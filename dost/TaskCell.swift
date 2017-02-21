@@ -20,12 +20,10 @@ class TaskCell: UITableViewCell {
         title.text = task.title
         notes.text = task.notes
         setCompletedStyle(state: task.completed)
-        
     }
     
     
     @IBAction func completed(_ sender: UIButton) {
-        
         completedAction!(self)
     }
     
@@ -37,11 +35,13 @@ class TaskCell: UITableViewCell {
         if !state {
             completedButton.setImage(UIImage(named: "switchOFF"), for: UIControlState.normal)
             title?.textColor = UIColor.black
+            title?.font = UIFont.boldSystemFont(ofSize: 20)
             notes?.textColor = UIColor.black
-            //state = true
+            
         } else {
             completedButton.setImage(UIImage(named: "switchON"), for: UIControlState.normal)
             title?.textColor = UIColor.lightGray
+            title?.font = UIFont.italicSystemFont(ofSize: 18)
             notes?.textColor = UIColor.lightGray
         }
     }
