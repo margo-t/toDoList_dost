@@ -35,6 +35,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
             
+            //closure for task
+            let task = controller.object(at: (indexPath as NSIndexPath) as IndexPath)
+            
+            cell.completedAction = { (self) in
+                cell.updateCompletion(task: task)
+            }
+            
+            
             configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
             return cell
         }
