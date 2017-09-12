@@ -38,7 +38,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             //closure for task
             let task = controller.object(at: (indexPath as NSIndexPath) as IndexPath)
-            
             cell.completedAction = { (self) in
                 cell.updateCompletion(task: task)
             }
@@ -174,7 +173,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
         
-
     
     
     
